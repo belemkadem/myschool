@@ -77,7 +77,7 @@
                     <label class="form-control-label" jhiTranslate="myschoolApp.tutor.tutorType" for="field_tutorType">Tutor Type</label>
                     <select class="form-control" id="field_tutorType" name="tutorType" formControlName="tutorType">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="tutorTypeOption.id === editForm.get('tutorType')!.value?.id ? editForm.get('tutorType')!.value : tutorTypeOption" *ngFor="let tutorTypeOption of tutortypes; trackBy: trackById">{{ tutorTypeOption.id }}</option>
+                        <option [ngValue]="tutorTypeOption.id === editForm.get('tutorType')!.value?.id ? editForm.get('tutorType')!.value : tutorTypeOption" *ngFor="let tutorTypeOption of tutortypes; trackBy: trackById">{{ tutorTypeOption.name }}</option>
                     </select>
                 </div>
             </div>

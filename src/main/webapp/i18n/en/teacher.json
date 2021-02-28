@@ -16,6 +16,8 @@
       "detail": {
         "title": "Teacher"
       },
+      "designation": "Designation",
+      "speciality": "Speciality",
       "lastName": "Last Name",
       "firstName": "First Name",
       "arabicLastName": "Arabic Last Name",

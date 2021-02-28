@@ -12,7 +12,7 @@
       "otherEntityName": "grade",
       "otherEntityRelationshipName": "gradeClass",
       "relationshipName": "grade",
-      "otherEntityField": "id"
+      "otherEntityField": "name"
     }
   ],
   "changelogDate": "20210227063647",

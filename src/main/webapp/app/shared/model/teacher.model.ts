@@ -4,6 +4,8 @@ import { Gender } from 'app/shared/model/enumerations/gender.model';
 
 export interface ITeacher {
   id?: number;
+  designation?: string;
+  speciality?: string;
   lastName?: string;
   firstName?: string;
   arabicLastName?: string;
@@ -21,6 +23,8 @@ export interface ITeacher {
 export class Teacher implements ITeacher {
   constructor(
     public id?: number,
+    public designation?: string,
+    public speciality?: string,
     public lastName?: string,
     public firstName?: string,
     public arabicLastName?: string,

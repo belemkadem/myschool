@@ -18,6 +18,8 @@ export class TeacherUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
+    designation: [],
+    speciality: [],
     lastName: [],
     firstName: [],
     arabicLastName: [],
@@ -43,6 +45,8 @@ export class TeacherUpdateComponent implements OnInit {
   updateForm(teacher: ITeacher): void {
     this.editForm.patchValue({
       id: teacher.id,
+      designation: teacher.designation,
+      speciality: teacher.speciality,
       lastName: teacher.lastName,
       firstName: teacher.firstName,
       arabicLastName: teacher.arabicLastName,
@@ -76,6 +80,8 @@ export class TeacherUpdateComponent implements OnInit {
     return {
       ...new Teacher(),
       id: this.editForm.get(['id'])!.value,
+      designation: this.editForm.get(['designation'])!.value,
+      speciality: this.editForm.get(['speciality'])!.value,
       lastName: this.editForm.get(['lastName'])!.value,
       firstName: this.editForm.get(['firstName'])!.value,
       arabicLastName: this.editForm.get(['arabicLastName'])!.value,

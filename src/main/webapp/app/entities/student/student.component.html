@@ -62,17 +62,17 @@
                     <td>{{ student.nationality }}</td>
                     <td>
                         <div *ngIf="student.tutor1">
-                            <a [routerLink]="['/tutor', student.tutor1?.id, 'view']" >{{ student.tutor1?.id }}</a>
+                            <a [routerLink]="['/tutor', student.tutor1?.id, 'view']" >{{ student.tutor1?.firstName }}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="student.tutor2">
-                            <a [routerLink]="['/tutor', student.tutor2?.id, 'view']" >{{ student.tutor2?.id }}</a>
+                            <a [routerLink]="['/tutor', student.tutor2?.id, 'view']" >{{ student.tutor2?.firstName }}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="student.gradeClass">
-                            <a [routerLink]="['/grade-class', student.gradeClass?.id, 'view']" >{{ student.gradeClass?.id }}</a>
+                            <a [routerLink]="['/grade-class', student.gradeClass?.id, 'view']" >{{ student.gradeClass?.name }}</a>
                         </div>
                     </td>
                     <td class="text-right">

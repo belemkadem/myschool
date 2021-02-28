@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity GeneralTimeTableElement.
+    -->
+    <changeSet id="20210228071635-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="subject_id"
+                                 baseTableName="general_time_table_element"
+                                 constraintName="fk_general_time_table_element_subject_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subject"/>
+
+        <addForeignKeyConstraint baseColumnNames="general_time_table_id"
+                                 baseTableName="general_time_table_element"
+                                 constraintName="fk_general_time_table_element_general_time_table_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="general_time_table"/>
+
+    </changeSet>
+</databaseChangeLog>

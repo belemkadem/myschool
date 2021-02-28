@@ -32,6 +32,19 @@ import { RouterModule } from '@angular/router';
         path: 'teacher',
         loadChildren: () => import('./teacher/teacher.module').then(m => m.MyschoolTeacherModule),
       },
+      {
+        path: 'subject',
+        loadChildren: () => import('./subject/subject.module').then(m => m.MyschoolSubjectModule),
+      },
+      {
+        path: 'general-time-table',
+        loadChildren: () => import('./general-time-table/general-time-table.module').then(m => m.MyschoolGeneralTimeTableModule),
+      },
+      {
+        path: 'general-time-table-element',
+        loadChildren: () =>
+          import('./general-time-table-element/general-time-table-element.module').then(m => m.MyschoolGeneralTimeTableElementModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

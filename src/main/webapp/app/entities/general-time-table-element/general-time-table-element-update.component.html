@@ -1,0 +1,135 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-general-time-table-element-heading" jhiTranslate="myschoolApp.generalTimeTableElement.home.createOrEditLabel">Create or edit a General Time Table Element</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.generalTimeTableElement.dayOfWeek" for="field_dayOfWeek">Day Of Week</label>
+                    <select class="form-control" name="dayOfWeek" formControlName="dayOfWeek" id="field_dayOfWeek">
+                        <option value="MONDAY">{{ 'myschoolApp.DayOfWeek.MONDAY' | translate }}</option>
+                        <option value="TUESDAY">{{ 'myschoolApp.DayOfWeek.TUESDAY' | translate }}</option>
+                        <option value="WEDNESDAY">{{ 'myschoolApp.DayOfWeek.WEDNESDAY' | translate }}</option>
+                        <option value="THURSDAY">{{ 'myschoolApp.DayOfWeek.THURSDAY' | translate }}</option>
+                        <option value="FRIDAY">{{ 'myschoolApp.DayOfWeek.FRIDAY' | translate }}</option>
+                        <option value="SATURDAY">{{ 'myschoolApp.DayOfWeek.SATURDAY' | translate }}</option>
+                        <option value="SUNDAY">{{ 'myschoolApp.DayOfWeek.SUNDAY' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.generalTimeTableElement.houreFrom" for="field_houreFrom">Houre From</label>
+                    <input type="number" class="form-control" name="houreFrom" id="field_houreFrom"
+                           formControlName="houreFrom"/>
+                    <div *ngIf="editForm.get('houreFrom')!.invalid && (editForm.get('houreFrom')!.dirty || editForm.get('houreFrom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('houreFrom')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('houreFrom')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 23 }">
+                            This field cannot be more than 23.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('houreFrom')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.generalTimeTableElement.minuteFrom" for="field_minuteFrom">Minute From</label>
+                    <input type="number" class="form-control" name="minuteFrom" id="field_minuteFrom"
+                           formControlName="minuteFrom"/>
+                    <div *ngIf="editForm.get('minuteFrom')!.invalid && (editForm.get('minuteFrom')!.dirty || editForm.get('minuteFrom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('minuteFrom')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('minuteFrom')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 59 }">
+                            This field cannot be more than 59.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('minuteFrom')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.generalTimeTableElement.houreTo" for="field_houreTo">Houre To</label>
+                    <input type="number" class="form-control" name="houreTo" id="field_houreTo"
+                           formControlName="houreTo"/>
+                    <div *ngIf="editForm.get('houreTo')!.invalid && (editForm.get('houreTo')!.dirty || editForm.get('houreTo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('houreTo')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('houreTo')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 23 }">
+                            This field cannot be more than 23.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('houreTo')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.generalTimeTableElement.minuteTo" for="field_minuteTo">Minute To</label>
+                    <input type="number" class="form-control" name="minuteTo" id="field_minuteTo"
+                           formControlName="minuteTo"/>
+                    <div *ngIf="editForm.get('minuteTo')!.invalid && (editForm.get('minuteTo')!.dirty || editForm.get('minuteTo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('minuteTo')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('minuteTo')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 59 }">
+                            This field cannot be more than 59.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('minuteTo')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.generalTimeTableElement.subject" for="field_subject">Subject</label>
+                    <select class="form-control" id="field_subject" name="subject" formControlName="subject">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="subjectOption.id === editForm.get('subject')!.value?.id ? editForm.get('subject')!.value : subjectOption" *ngFor="let subjectOption of subjects; trackBy: trackById">{{ subjectOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.generalTimeTableElement.generalTimeTable" for="field_generalTimeTable">General Time Table</label>
+                    <select class="form-control" id="field_generalTimeTable" name="generalTimeTable" formControlName="generalTimeTable">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="generalTimeTableOption.id === editForm.get('generalTimeTable')!.value?.id ? editForm.get('generalTimeTable')!.value : generalTimeTableOption" *ngFor="let generalTimeTableOption of generaltimetables; trackBy: trackById">{{ generalTimeTableOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

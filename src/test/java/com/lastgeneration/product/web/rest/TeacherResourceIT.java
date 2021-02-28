@@ -35,6 +35,12 @@ import com.lastgeneration.product.domain.enumeration.Gender;
 @WithMockUser
 public class TeacherResourceIT {
 
+    private static final String DEFAULT_DESIGNATION = "AAAAAAAAAA";
+    private static final String UPDATED_DESIGNATION = "BBBBBBBBBB";
+
+    private static final String DEFAULT_SPECIALITY = "AAAAAAAAAA";
+    private static final String UPDATED_SPECIALITY = "BBBBBBBBBB";
+
     private static final String DEFAULT_LAST_NAME = "AAAAAAAAAA";
     private static final String UPDATED_LAST_NAME = "BBBBBBBBBB";
 
@@ -93,6 +99,8 @@ public class TeacherResourceIT {
      */
     public static Teacher createEntity(EntityManager em) {
         Teacher teacher = new Teacher()
+            .designation(DEFAULT_DESIGNATION)
+            .speciality(DEFAULT_SPECIALITY)
             .lastName(DEFAULT_LAST_NAME)
             .firstName(DEFAULT_FIRST_NAME)
             .arabicLastName(DEFAULT_ARABIC_LAST_NAME)
@@ -115,6 +123,8 @@ public class TeacherResourceIT {
      */
     public static Teacher createUpdatedEntity(EntityManager em) {
         Teacher teacher = new Teacher()
+            .designation(UPDATED_DESIGNATION)
+            .speciality(UPDATED_SPECIALITY)
             .lastName(UPDATED_LAST_NAME)
             .firstName(UPDATED_FIRST_NAME)
             .arabicLastName(UPDATED_ARABIC_LAST_NAME)
@@ -149,6 +159,8 @@ public class TeacherResourceIT {
         List<Teacher> teacherList = teacherRepository.findAll();
         assertThat(teacherList).hasSize(databaseSizeBeforeCreate + 1);
         Teacher testTeacher = teacherList.get(teacherList.size() - 1);
+        assertThat(testTeacher.getDesignation()).isEqualTo(DEFAULT_DESIGNATION);
+        assertThat(testTeacher.getSpeciality()).isEqualTo(DEFAULT_SPECIALITY);
         assertThat(testTeacher.getLastName()).isEqualTo(DEFAULT_LAST_NAME);
         assertThat(testTeacher.getFirstName()).isEqualTo(DEFAULT_FIRST_NAME);
         assertThat(testTeacher.getArabicLastName()).isEqualTo(DEFAULT_ARABIC_LAST_NAME);
@@ -194,6 +206,8 @@ public class TeacherResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(teacher.getId().intValue())))
+            .andExpect(jsonPath("$.[*].designation").value(hasItem(DEFAULT_DESIGNATION)))
+            .andExpect(jsonPath("$.[*].speciality").value(hasItem(DEFAULT_SPECIALITY)))
             .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME)))
             .andExpect(jsonPath("$.[*].firstName").value(hasItem(DEFAULT_FIRST_NAME)))
             .andExpect(jsonPath("$.[*].arabicLastName").value(hasItem(DEFAULT_ARABIC_LAST_NAME)))
@@ -219,6 +233,8 @@ public class TeacherResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(teacher.getId().intValue()))
+            .andExpect(jsonPath("$.designation").value(DEFAULT_DESIGNATION))
+            .andExpect(jsonPath("$.speciality").value(DEFAULT_SPECIALITY))
             .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME))
             .andExpect(jsonPath("$.firstName").value(DEFAULT_FIRST_NAME))
             .andExpect(jsonPath("$.arabicLastName").value(DEFAULT_ARABIC_LAST_NAME))
@@ -253,6 +269,8 @@ public class TeacherResourceIT {
         // Disconnect from session so that the updates on updatedTeacher are not directly saved in db
         em.detach(updatedTeacher);
         updatedTeacher
+            .designation(UPDATED_DESIGNATION)
+            .speciality(UPDATED_SPECIALITY)
             .lastName(UPDATED_LAST_NAME)
             .firstName(UPDATED_FIRST_NAME)
             .arabicLastName(UPDATED_ARABIC_LAST_NAME)
@@ -275,6 +293,8 @@ public class TeacherResourceIT {
         List<Teacher> teacherList = teacherRepository.findAll();
         assertThat(teacherList).hasSize(databaseSizeBeforeUpdate);
         Teacher testTeacher = teacherList.get(teacherList.size() - 1);
+        assertThat(testTeacher.getDesignation()).isEqualTo(UPDATED_DESIGNATION);
+        assertThat(testTeacher.getSpeciality()).isEqualTo(UPDATED_SPECIALITY);
         assertThat(testTeacher.getLastName()).isEqualTo(UPDATED_LAST_NAME);
         assertThat(testTeacher.getFirstName()).isEqualTo(UPDATED_FIRST_NAME);
         assertThat(testTeacher.getArabicLastName()).isEqualTo(UPDATED_ARABIC_LAST_NAME);

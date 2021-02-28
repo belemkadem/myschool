@@ -100,15 +100,15 @@ entity GeneralTimeTableElement{
 }
 
 relationship ManyToOne {
-	Student{tutor1} to Tutor,
-	Student{tutor2} to Tutor,
-	Tutor{tutorType} to TutorType,
-	GradeClass{grade} to Grade,
-	Grade{department} to Department,
-	Student{gradeClass} to GradeClass
-	Subject{grade} to Grade
-	GeneralTimeTable{gradeClass} to GradeClass
-	GeneralTimeTableElement{subject} to Subject
+	Student{tutor1(firstName)} to Tutor,
+	Student{tutor2(firstName)} to Tutor,
+	Tutor{tutorType(name)} to TutorType,
+	GradeClass{grade(name)} to Grade,
+	Grade{department(name)} to Department,
+	Student{gradeClass(name)} to GradeClass
+	Subject{grade(name)} to Grade
+	GeneralTimeTable{gradeClass(name)} to GradeClass
+	GeneralTimeTableElement{subject(name)} to Subject
 }
 
 relationship OneToMany {

@@ -51,7 +51,7 @@
                 <dt><span jhiTranslate="myschoolApp.tutor.tutorType">Tutor Type</span></dt>
                 <dd>
                     <div *ngIf="tutor.tutorType">
-                        <a [routerLink]="['/tutor-type', tutor.tutorType?.id, 'view']">{{ tutor.tutorType?.id }}</a>
+                        <a [routerLink]="['/tutor-type', tutor.tutorType?.id, 'view']">{{ tutor.tutorType?.name }}</a>
                     </div>
                 </dd>
             </dl>

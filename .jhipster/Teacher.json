@@ -2,6 +2,14 @@
   "name": "Teacher",
   "fields": [
     {
+      "fieldName": "designation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "speciality",
+      "fieldType": "String"
+    },
+    {
       "fieldName": "lastName",
       "fieldType": "String"
     },

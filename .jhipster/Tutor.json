@@ -49,7 +49,7 @@
       "otherEntityName": "tutorType",
       "otherEntityRelationshipName": "tutor",
       "relationshipName": "tutorType",
-      "otherEntityField": "id"
+      "otherEntityField": "name"
     }
   ],
   "changelogDate": "20210227063947",

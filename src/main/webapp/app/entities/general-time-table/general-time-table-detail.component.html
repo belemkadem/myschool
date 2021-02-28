@@ -1,0 +1,32 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="generalTimeTable">
+            <h2><span jhiTranslate="myschoolApp.generalTimeTable.detail.title">General Time Table</span> {{ generalTimeTable.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="myschoolApp.generalTimeTable.gradeClass">Grade Class</span></dt>
+                <dd>
+                    <div *ngIf="generalTimeTable.gradeClass">
+                        <a [routerLink]="['/grade-class', generalTimeTable.gradeClass?.id, 'view']">{{ generalTimeTable.gradeClass?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/general-time-table', generalTimeTable.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -21,7 +21,7 @@
                     <label class="form-control-label" jhiTranslate="myschoolApp.grade.department" for="field_department">Department</label>
                     <select class="form-control" id="field_department" name="department" formControlName="department">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="departmentOption.id === editForm.get('department')!.value?.id ? editForm.get('department')!.value : departmentOption" *ngFor="let departmentOption of departments; trackBy: trackById">{{ departmentOption.id }}</option>
+                        <option [ngValue]="departmentOption.id === editForm.get('department')!.value?.id ? editForm.get('department')!.value : departmentOption" *ngFor="let departmentOption of departments; trackBy: trackById">{{ departmentOption.name }}</option>
                     </select>
                 </div>
             </div>

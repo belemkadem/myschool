@@ -1,0 +1,28 @@
+{
+  "myschoolApp": {
+    "generalTimeTableElement": {
+      "home": {
+        "title": "General Time Table Elements",
+        "createLabel": "Create a new General Time Table Element",
+        "createOrEditLabel": "Create or edit a General Time Table Element",
+        "notFound": "No General Time Table Elements found"
+      },
+      "created": "A new General Time Table Element is created with identifier {{ param }}",
+      "updated": "A General Time Table Element is updated with identifier {{ param }}",
+      "deleted": "A General Time Table Element is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete General Time Table Element {{ id }}?"
+      },
+      "detail": {
+        "title": "General Time Table Element"
+      },
+      "dayOfWeek": "Day Of Week",
+      "houreFrom": "Houre From",
+      "minuteFrom": "Minute From",
+      "houreTo": "Houre To",
+      "minuteTo": "Minute To",
+      "subject": "Subject",
+      "generalTimeTable": "General Time Table"
+    }
+  }
+}

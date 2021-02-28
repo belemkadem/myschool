@@ -1,0 +1,77 @@
+{
+  "name": "GeneralTimeTableElement",
+  "fields": [
+    {
+      "fieldName": "dayOfWeek",
+      "fieldType": "DayOfWeek",
+      "fieldValues": "MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY"
+    },
+    {
+      "fieldName": "houreFrom",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "23"
+    },
+    {
+      "fieldName": "minuteFrom",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "59"
+    },
+    {
+      "fieldName": "houreTo",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "23"
+    },
+    {
+      "fieldName": "minuteTo",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "59"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "subject",
+      "otherEntityRelationshipName": "generalTimeTableElement",
+      "relationshipName": "subject",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "generalTimeTable",
+      "otherEntityRelationshipName": "elements",
+      "relationshipName": "generalTimeTable",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210228071635",
+  "entityTableName": "general_time_table_element",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

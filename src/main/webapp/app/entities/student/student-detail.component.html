@@ -67,19 +67,19 @@
                 <dt><span jhiTranslate="myschoolApp.student.tutor1">Tutor 1</span></dt>
                 <dd>
                     <div *ngIf="student.tutor1">
-                        <a [routerLink]="['/tutor', student.tutor1?.id, 'view']">{{ student.tutor1?.id }}</a>
+                        <a [routerLink]="['/tutor', student.tutor1?.id, 'view']">{{ student.tutor1?.firstName }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="myschoolApp.student.tutor2">Tutor 2</span></dt>
                 <dd>
                     <div *ngIf="student.tutor2">
-                        <a [routerLink]="['/tutor', student.tutor2?.id, 'view']">{{ student.tutor2?.id }}</a>
+                        <a [routerLink]="['/tutor', student.tutor2?.id, 'view']">{{ student.tutor2?.firstName }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="myschoolApp.student.gradeClass">Grade Class</span></dt>
                 <dd>
                     <div *ngIf="student.gradeClass">
-                        <a [routerLink]="['/grade-class', student.gradeClass?.id, 'view']">{{ student.gradeClass?.id }}</a>
+                        <a [routerLink]="['/grade-class', student.gradeClass?.id, 'view']">{{ student.gradeClass?.name }}</a>
                     </div>
                 </dd>
             </dl>

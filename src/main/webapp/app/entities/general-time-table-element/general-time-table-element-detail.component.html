@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="generalTimeTableElement">
+            <h2><span jhiTranslate="myschoolApp.generalTimeTableElement.detail.title">General Time Table Element</span> {{ generalTimeTableElement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="myschoolApp.generalTimeTableElement.dayOfWeek">Day Of Week</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'myschoolApp.DayOfWeek.' + generalTimeTableElement.dayOfWeek }}">{{ generalTimeTableElement.dayOfWeek }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.generalTimeTableElement.houreFrom">Houre From</span></dt>
+                <dd>
+                    <span>{{ generalTimeTableElement.houreFrom }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.generalTimeTableElement.minuteFrom">Minute From</span></dt>
+                <dd>
+                    <span>{{ generalTimeTableElement.minuteFrom }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.generalTimeTableElement.houreTo">Houre To</span></dt>
+                <dd>
+                    <span>{{ generalTimeTableElement.houreTo }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.generalTimeTableElement.minuteTo">Minute To</span></dt>
+                <dd>
+                    <span>{{ generalTimeTableElement.minuteTo }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.generalTimeTableElement.subject">Subject</span></dt>
+                <dd>
+                    <div *ngIf="generalTimeTableElement.subject">
+                        <a [routerLink]="['/subject', generalTimeTableElement.subject?.id, 'view']">{{ generalTimeTableElement.subject?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.generalTimeTableElement.generalTimeTable">General Time Table</span></dt>
+                <dd>
+                    <div *ngIf="generalTimeTableElement.generalTimeTable">
+                        <a [routerLink]="['/general-time-table', generalTimeTableElement.generalTimeTable?.id, 'view']">{{ generalTimeTableElement.generalTimeTable?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/general-time-table-element', generalTimeTableElement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

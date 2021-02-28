@@ -113,7 +113,7 @@
                     <label class="form-control-label" jhiTranslate="myschoolApp.student.tutor1" for="field_tutor1">Tutor 1</label>
                     <select class="form-control" id="field_tutor1" name="tutor1" formControlName="tutor1">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="tutorOption.id === editForm.get('tutor1')!.value?.id ? editForm.get('tutor1')!.value : tutorOption" *ngFor="let tutorOption of tutors; trackBy: trackById">{{ tutorOption.id }}</option>
+                        <option [ngValue]="tutorOption.id === editForm.get('tutor1')!.value?.id ? editForm.get('tutor1')!.value : tutorOption" *ngFor="let tutorOption of tutors; trackBy: trackById">{{ tutorOption.firstName }}</option>
                     </select>
                 </div>
 
@@ -121,7 +121,7 @@
                     <label class="form-control-label" jhiTranslate="myschoolApp.student.tutor2" for="field_tutor2">Tutor 2</label>
                     <select class="form-control" id="field_tutor2" name="tutor2" formControlName="tutor2">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="tutorOption.id === editForm.get('tutor2')!.value?.id ? editForm.get('tutor2')!.value : tutorOption" *ngFor="let tutorOption of tutors; trackBy: trackById">{{ tutorOption.id }}</option>
+                        <option [ngValue]="tutorOption.id === editForm.get('tutor2')!.value?.id ? editForm.get('tutor2')!.value : tutorOption" *ngFor="let tutorOption of tutors; trackBy: trackById">{{ tutorOption.firstName }}</option>
                     </select>
                 </div>
 
@@ -129,7 +129,7 @@
                     <label class="form-control-label" jhiTranslate="myschoolApp.student.gradeClass" for="field_gradeClass">Grade Class</label>
                     <select class="form-control" id="field_gradeClass" name="gradeClass" formControlName="gradeClass">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="gradeClassOption.id === editForm.get('gradeClass')!.value?.id ? editForm.get('gradeClass')!.value : gradeClassOption" *ngFor="let gradeClassOption of gradeclasses; trackBy: trackById">{{ gradeClassOption.id }}</option>
+                        <option [ngValue]="gradeClassOption.id === editForm.get('gradeClass')!.value?.id ? editForm.get('gradeClass')!.value : gradeClassOption" *ngFor="let gradeClassOption of gradeclasses; trackBy: trackById">{{ gradeClassOption.name }}</option>
                     </select>
                 </div>
             </div>

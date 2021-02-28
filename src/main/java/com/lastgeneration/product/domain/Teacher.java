@@ -23,6 +23,12 @@ public class Teacher implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "designation")
+    private String designation;
+
+    @Column(name = "speciality")
+    private String speciality;
+
     @Column(name = "last_name")
     private String lastName;
 
@@ -68,6 +74,32 @@ public class Teacher implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public Teacher designation(String designation) {
+        this.designation = designation;
+        return this;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public Teacher speciality(String speciality) {
+        this.speciality = speciality;
+        return this;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
     public String getLastName() {
@@ -248,6 +280,8 @@ public class Teacher implements Serializable {
     public String toString() {
         return "Teacher{" +
             "id=" + getId() +
+            ", designation='" + getDesignation() + "'" +
+            ", speciality='" + getSpeciality() + "'" +
             ", lastName='" + getLastName() + "'" +
             ", firstName='" + getFirstName() + "'" +
             ", arabicLastName='" + getArabicLastName() + "'" +

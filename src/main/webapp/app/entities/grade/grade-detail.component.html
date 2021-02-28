@@ -15,7 +15,7 @@
                 <dt><span jhiTranslate="myschoolApp.grade.department">Department</span></dt>
                 <dd>
                     <div *ngIf="grade.department">
-                        <a [routerLink]="['/department', grade.department?.id, 'view']">{{ grade.department?.id }}</a>
+                        <a [routerLink]="['/department', grade.department?.id, 'view']">{{ grade.department?.name }}</a>
                     </div>
                 </dd>
             </dl>

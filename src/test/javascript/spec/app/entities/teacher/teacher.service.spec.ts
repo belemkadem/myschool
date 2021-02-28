@@ -32,6 +32,8 @@ describe('Service Tests', () => {
         'AAAAAAA',
         'AAAAAAA',
         'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
         currentDate,
         BloodGroup.OP,
         Gender.MALE,
@@ -85,6 +87,8 @@ describe('Service Tests', () => {
       it('should update a Teacher', () => {
         const returnedFromService = Object.assign(
           {
+            designation: 'BBBBBB',
+            speciality: 'BBBBBB',
             lastName: 'BBBBBB',
             firstName: 'BBBBBB',
             arabicLastName: 'BBBBBB',
@@ -118,6 +122,8 @@ describe('Service Tests', () => {
       it('should return a list of Teacher', () => {
         const returnedFromService = Object.assign(
           {
+            designation: 'BBBBBB',
+            speciality: 'BBBBBB',
             lastName: 'BBBBBB',
             firstName: 'BBBBBB',
             arabicLastName: 'BBBBBB',

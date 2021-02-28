@@ -66,21 +66,21 @@
       "otherEntityName": "tutor",
       "otherEntityRelationshipName": "student",
       "relationshipName": "tutor1",
-      "otherEntityField": "id"
+      "otherEntityField": "firstName"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "tutor",
       "otherEntityRelationshipName": "student",
       "relationshipName": "tutor2",
-      "otherEntityField": "id"
+      "otherEntityField": "firstName"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "gradeClass",
       "otherEntityRelationshipName": "student",
       "relationshipName": "gradeClass",
-      "otherEntityField": "id"
+      "otherEntityField": "name"
     }
   ],
   "changelogDate": "20210227063847",

@@ -52,7 +52,7 @@
                     <td>{{ tutor.passowrd }}</td>
                     <td>
                         <div *ngIf="tutor.tutorType">
-                            <a [routerLink]="['/tutor-type', tutor.tutorType?.id, 'view']" >{{ tutor.tutorType?.id }}</a>
+                            <a [routerLink]="['/tutor-type', tutor.tutorType?.id, 'view']" >{{ tutor.tutorType?.name }}</a>
                         </div>
                     </td>
                     <td class="text-right">

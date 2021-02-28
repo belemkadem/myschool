@@ -1,0 +1,30 @@
+{
+  "name": "GeneralTimeTable",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "generalTimeTableElement",
+      "otherEntityRelationshipName": "generalTimeTable",
+      "relationshipName": "elements"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "gradeClass",
+      "otherEntityRelationshipName": "generalTimeTable",
+      "relationshipName": "gradeClass",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210228071535",
+  "entityTableName": "general_time_table",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
