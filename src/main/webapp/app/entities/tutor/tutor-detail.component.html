@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tutor">
+            <h2><span jhiTranslate="myschoolApp.tutor.detail.title">Tutor</span> {{ tutor.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="myschoolApp.tutor.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{ tutor.lastName }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.tutor.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{ tutor.firstName }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.tutor.arabicLastName">Arabic Last Name</span></dt>
+                <dd>
+                    <span>{{ tutor.arabicLastName }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.tutor.arabicFirstName">Arabic First Name</span></dt>
+                <dd>
+                    <span>{{ tutor.arabicFirstName }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.tutor.nin">Nin</span></dt>
+                <dd>
+                    <span>{{ tutor.nin }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.tutor.gender">Gender</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'myschoolApp.Gender.' + tutor.gender }}">{{ tutor.gender }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.tutor.address">Address</span></dt>
+                <dd>
+                    <span>{{ tutor.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.tutor.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{ tutor.phoneNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.tutor.email">Email</span></dt>
+                <dd>
+                    <span>{{ tutor.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.tutor.passowrd">Passowrd</span></dt>
+                <dd>
+                    <span>{{ tutor.passowrd }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.tutor.tutorType">Tutor Type</span></dt>
+                <dd>
+                    <div *ngIf="tutor.tutorType">
+                        <a [routerLink]="['/tutor-type', tutor.tutorType?.id, 'view']">{{ tutor.tutorType?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tutor', tutor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

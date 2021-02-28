@@ -1,0 +1,116 @@
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+// paginate Job with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+enum Gender{
+	MALE, FEMALE
+}
+enum BloodGroup {
+	OP,OM,AM,AP,BM,BP,ABP,ABM
+}
+
+enum DayOfWeek{
+	MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+}
+
+entity Department{
+	name String
+}
+
+entity Grade{
+	name String
+}
+
+entity GradeClass{
+	name String
+}
+
+entity TutorType{
+	name String
+}
+
+entity Student {
+	lastName String,
+	firstName String,
+	arabicLastName String,
+	arabicFirstName String,
+	DateOfBirth LocalDate,
+	bloodGroup BloodGroup,
+	classroom String,
+	Gender Gender,
+	address String,
+	email String,
+	picture String,
+	schoolOfOrigin String,
+	password String,
+	nationality String
+}
+
+entity Tutor {
+	lastName String,
+	firstName String,
+	arabicLastName String,
+	arabicFirstName String,
+	nin String,
+	Gender Gender,
+	address String
+	phoneNumber String,
+	email String,
+	passowrd String
+}
+
+entity Teacher{
+	designation String,
+	speciality String,
+	lastName String,
+	firstName String,
+	arabicLastName String,
+	arabicFirstName String,
+	DateOfBirth LocalDate,
+	bloodGroup BloodGroup,
+	Gender Gender,
+	address String,
+	email String,
+	picture String,
+	password String,
+	nationality String
+}
+
+entity Subject{
+	name String
+}
+
+entity GeneralTimeTable{
+	
+}
+
+entity GeneralTimeTableElement{
+	dayOfWeek DayOfWeek,
+	houreFrom Integer min(0) max(23)
+	minuteFrom Integer min(0) max(59)
+	houreTo Integer min(0) max(23)
+	minuteTo Integer min(0) max(59)
+}
+
+relationship ManyToOne {
+	Student{tutor1} to Tutor,
+	Student{tutor2} to Tutor,
+	Tutor{tutorType} to TutorType,
+	GradeClass{grade} to Grade,
+	Grade{department} to Department,
+	Student{gradeClass} to GradeClass
+	Subject{grade} to Grade
+	GeneralTimeTable{gradeClass} to GradeClass
+	GeneralTimeTableElement{subject} to Subject
+}
+
+relationship OneToMany {
+	GeneralTimeTable{elements} to GeneralTimeTableElement
+}

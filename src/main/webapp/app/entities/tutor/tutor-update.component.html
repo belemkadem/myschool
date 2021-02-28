@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-tutor-heading" jhiTranslate="myschoolApp.tutor.home.createOrEditLabel">Create or edit a Tutor</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.tutor.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                           formControlName="lastName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.tutor.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                           formControlName="firstName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.tutor.arabicLastName" for="field_arabicLastName">Arabic Last Name</label>
+                    <input type="text" class="form-control" name="arabicLastName" id="field_arabicLastName"
+                           formControlName="arabicLastName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.tutor.arabicFirstName" for="field_arabicFirstName">Arabic First Name</label>
+                    <input type="text" class="form-control" name="arabicFirstName" id="field_arabicFirstName"
+                           formControlName="arabicFirstName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.tutor.nin" for="field_nin">Nin</label>
+                    <input type="text" class="form-control" name="nin" id="field_nin"
+                           formControlName="nin"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.tutor.gender" for="field_gender">Gender</label>
+                    <select class="form-control" name="gender" formControlName="gender" id="field_gender">
+                        <option value="MALE">{{ 'myschoolApp.Gender.MALE' | translate }}</option>
+                        <option value="FEMALE">{{ 'myschoolApp.Gender.FEMALE' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.tutor.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                           formControlName="address"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.tutor.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                           formControlName="phoneNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.tutor.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.tutor.passowrd" for="field_passowrd">Passowrd</label>
+                    <input type="text" class="form-control" name="passowrd" id="field_passowrd"
+                           formControlName="passowrd"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.tutor.tutorType" for="field_tutorType">Tutor Type</label>
+                    <select class="form-control" id="field_tutorType" name="tutorType" formControlName="tutorType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tutorTypeOption.id === editForm.get('tutorType')!.value?.id ? editForm.get('tutorType')!.value : tutorTypeOption" *ngFor="let tutorTypeOption of tutortypes; trackBy: trackById">{{ tutorTypeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

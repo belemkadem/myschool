@@ -1,0 +1,22 @@
+{
+  "myschoolApp": {
+    "tutorType": {
+      "home": {
+        "title": "Tutor Types",
+        "createLabel": "Create a new Tutor Type",
+        "createOrEditLabel": "Create or edit a Tutor Type",
+        "notFound": "No Tutor Types found"
+      },
+      "created": "A new Tutor Type is created with identifier {{ param }}",
+      "updated": "A Tutor Type is updated with identifier {{ param }}",
+      "deleted": "A Tutor Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tutor Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Tutor Type"
+      },
+      "name": "Name"
+    }
+  }
+}

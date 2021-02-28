@@ -1,0 +1,9 @@
+{
+  "myschoolApp": {
+    "Gender": {
+      "null": "",
+      "MALE": "MALE",
+      "FEMALE": "FEMALE"
+    }
+  }
+}

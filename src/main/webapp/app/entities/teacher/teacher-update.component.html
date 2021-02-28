@@ -1,0 +1,112 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-teacher-heading" jhiTranslate="myschoolApp.teacher.home.createOrEditLabel">Create or edit a Teacher</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.teacher.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                           formControlName="lastName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.teacher.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                           formControlName="firstName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.teacher.arabicLastName" for="field_arabicLastName">Arabic Last Name</label>
+                    <input type="text" class="form-control" name="arabicLastName" id="field_arabicLastName"
+                           formControlName="arabicLastName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.teacher.arabicFirstName" for="field_arabicFirstName">Arabic First Name</label>
+                    <input type="text" class="form-control" name="arabicFirstName" id="field_arabicFirstName"
+                           formControlName="arabicFirstName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.teacher.dateOfBirth" for="field_dateOfBirth">Date Of Birth</label>
+                    <div class="input-group">
+                        <input id="field_dateOfBirth" type="text" class="form-control" name="dateOfBirth" ngbDatepicker #dateOfBirthDp="ngbDatepicker" formControlName="dateOfBirth"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateOfBirthDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.teacher.bloodGroup" for="field_bloodGroup">Blood Group</label>
+                    <select class="form-control" name="bloodGroup" formControlName="bloodGroup" id="field_bloodGroup">
+                        <option value="OP">{{ 'myschoolApp.BloodGroup.OP' | translate }}</option>
+                        <option value="OM">{{ 'myschoolApp.BloodGroup.OM' | translate }}</option>
+                        <option value="AM">{{ 'myschoolApp.BloodGroup.AM' | translate }}</option>
+                        <option value="AP">{{ 'myschoolApp.BloodGroup.AP' | translate }}</option>
+                        <option value="BM">{{ 'myschoolApp.BloodGroup.BM' | translate }}</option>
+                        <option value="BP">{{ 'myschoolApp.BloodGroup.BP' | translate }}</option>
+                        <option value="ABP">{{ 'myschoolApp.BloodGroup.ABP' | translate }}</option>
+                        <option value="ABM">{{ 'myschoolApp.BloodGroup.ABM' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.teacher.gender" for="field_gender">Gender</label>
+                    <select class="form-control" name="gender" formControlName="gender" id="field_gender">
+                        <option value="MALE">{{ 'myschoolApp.Gender.MALE' | translate }}</option>
+                        <option value="FEMALE">{{ 'myschoolApp.Gender.FEMALE' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.teacher.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                           formControlName="address"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.teacher.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.teacher.picture" for="field_picture">Picture</label>
+                    <input type="text" class="form-control" name="picture" id="field_picture"
+                           formControlName="picture"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.teacher.password" for="field_password">Password</label>
+                    <input type="text" class="form-control" name="password" id="field_password"
+                           formControlName="password"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myschoolApp.teacher.nationality" for="field_nationality">Nationality</label>
+                    <input type="text" class="form-control" name="nationality" id="field_nationality"
+                           formControlName="nationality"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

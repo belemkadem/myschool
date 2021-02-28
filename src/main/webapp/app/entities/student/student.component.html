@@ -1,0 +1,105 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="myschoolApp.student.home.title">Students</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-student" [routerLink]="['/student/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="myschoolApp.student.home.createLabel">
+            Create a new Student
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="students?.length === 0">
+        <span jhiTranslate="myschoolApp.student.home.notFound">No students found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="students && students.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.lastName">Last Name</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.firstName">First Name</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.arabicLastName">Arabic Last Name</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.arabicFirstName">Arabic First Name</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.dateOfBirth">Date Of Birth</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.bloodGroup">Blood Group</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.classroom">Classroom</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.gender">Gender</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.address">Address</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.email">Email</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.picture">Picture</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.schoolOfOrigin">School Of Origin</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.password">Password</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.nationality">Nationality</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.tutor1">Tutor 1</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.tutor2">Tutor 2</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.student.gradeClass">Grade Class</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students ;trackBy: trackId">
+                    <td><a [routerLink]="['/student', student.id, 'view']">{{ student.id }}</a></td>
+                    <td>{{ student.lastName }}</td>
+                    <td>{{ student.firstName }}</td>
+                    <td>{{ student.arabicLastName }}</td>
+                    <td>{{ student.arabicFirstName }}</td>
+                    <td>{{ student.dateOfBirth | date:'mediumDate' }}</td>
+                    <td jhiTranslate="{{ 'myschoolApp.BloodGroup.' + student.bloodGroup }}">{{ student.bloodGroup }}</td>
+                    <td>{{ student.classroom }}</td>
+                    <td jhiTranslate="{{ 'myschoolApp.Gender.' + student.gender }}">{{ student.gender }}</td>
+                    <td>{{ student.address }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.picture }}</td>
+                    <td>{{ student.schoolOfOrigin }}</td>
+                    <td>{{ student.password }}</td>
+                    <td>{{ student.nationality }}</td>
+                    <td>
+                        <div *ngIf="student.tutor1">
+                            <a [routerLink]="['/tutor', student.tutor1?.id, 'view']" >{{ student.tutor1?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="student.tutor2">
+                            <a [routerLink]="['/tutor', student.tutor2?.id, 'view']" >{{ student.tutor2?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="student.gradeClass">
+                            <a [routerLink]="['/grade-class', student.gradeClass?.id, 'view']" >{{ student.gradeClass?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/student', student.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/student', student.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(student)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

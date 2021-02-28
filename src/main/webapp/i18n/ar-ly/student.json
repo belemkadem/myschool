@@ -1,0 +1,38 @@
+{
+  "myschoolApp": {
+    "student": {
+      "home": {
+        "title": "Students",
+        "createLabel": "Create a new Student",
+        "createOrEditLabel": "Create or edit a Student",
+        "notFound": "No Students found"
+      },
+      "created": "A new Student is created with identifier {{ param }}",
+      "updated": "A Student is updated with identifier {{ param }}",
+      "deleted": "A Student is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Student {{ id }}?"
+      },
+      "detail": {
+        "title": "Student"
+      },
+      "lastName": "Last Name",
+      "firstName": "First Name",
+      "arabicLastName": "Arabic Last Name",
+      "arabicFirstName": "Arabic First Name",
+      "dateOfBirth": "Date Of Birth",
+      "bloodGroup": "Blood Group",
+      "classroom": "Classroom",
+      "gender": "Gender",
+      "address": "Address",
+      "email": "Email",
+      "picture": "Picture",
+      "schoolOfOrigin": "School Of Origin",
+      "password": "Password",
+      "nationality": "Nationality",
+      "tutor1": "Tutor 1",
+      "tutor2": "Tutor 2",
+      "gradeClass": "Grade Class"
+    }
+  }
+}

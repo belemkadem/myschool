@@ -1,0 +1,66 @@
+{
+  "name": "Tutor",
+  "fields": [
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "arabicLastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "arabicFirstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "Gender",
+      "fieldValues": "MALE,FEMALE"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "passowrd",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tutorType",
+      "otherEntityRelationshipName": "tutor",
+      "relationshipName": "tutorType",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210227063947",
+  "entityTableName": "tutor",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

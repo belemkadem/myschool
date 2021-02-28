@@ -1,0 +1,29 @@
+{
+  "name": "GradeClass",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "grade",
+      "otherEntityRelationshipName": "gradeClass",
+      "relationshipName": "grade",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210227063647",
+  "entityTableName": "grade_class",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

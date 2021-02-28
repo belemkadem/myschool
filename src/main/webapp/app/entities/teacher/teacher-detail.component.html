@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="teacher">
+            <h2><span jhiTranslate="myschoolApp.teacher.detail.title">Teacher</span> {{ teacher.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="myschoolApp.teacher.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{ teacher.lastName }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.teacher.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{ teacher.firstName }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.teacher.arabicLastName">Arabic Last Name</span></dt>
+                <dd>
+                    <span>{{ teacher.arabicLastName }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.teacher.arabicFirstName">Arabic First Name</span></dt>
+                <dd>
+                    <span>{{ teacher.arabicFirstName }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.teacher.dateOfBirth">Date Of Birth</span></dt>
+                <dd>
+                    <span>{{ teacher.dateOfBirth }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.teacher.bloodGroup">Blood Group</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'myschoolApp.BloodGroup.' + teacher.bloodGroup }}">{{ teacher.bloodGroup }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.teacher.gender">Gender</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'myschoolApp.Gender.' + teacher.gender }}">{{ teacher.gender }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.teacher.address">Address</span></dt>
+                <dd>
+                    <span>{{ teacher.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.teacher.email">Email</span></dt>
+                <dd>
+                    <span>{{ teacher.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.teacher.picture">Picture</span></dt>
+                <dd>
+                    <span>{{ teacher.picture }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.teacher.password">Password</span></dt>
+                <dd>
+                    <span>{{ teacher.password }}</span>
+                </dd>
+                <dt><span jhiTranslate="myschoolApp.teacher.nationality">Nationality</span></dt>
+                <dd>
+                    <span>{{ teacher.nationality }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/teacher', teacher.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

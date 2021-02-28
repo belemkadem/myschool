@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="myschoolApp.tutor.home.title">Tutors</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tutor" [routerLink]="['/tutor/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="myschoolApp.tutor.home.createLabel">
+            Create a new Tutor
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tutors?.length === 0">
+        <span jhiTranslate="myschoolApp.tutor.home.notFound">No tutors found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tutors && tutors.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.tutor.lastName">Last Name</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.tutor.firstName">First Name</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.tutor.arabicLastName">Arabic Last Name</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.tutor.arabicFirstName">Arabic First Name</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.tutor.nin">Nin</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.tutor.gender">Gender</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.tutor.address">Address</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.tutor.phoneNumber">Phone Number</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.tutor.email">Email</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.tutor.passowrd">Passowrd</span></th>
+                    <th scope="col" ><span jhiTranslate="myschoolApp.tutor.tutorType">Tutor Type</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tutor of tutors ;trackBy: trackId">
+                    <td><a [routerLink]="['/tutor', tutor.id, 'view']">{{ tutor.id }}</a></td>
+                    <td>{{ tutor.lastName }}</td>
+                    <td>{{ tutor.firstName }}</td>
+                    <td>{{ tutor.arabicLastName }}</td>
+                    <td>{{ tutor.arabicFirstName }}</td>
+                    <td>{{ tutor.nin }}</td>
+                    <td jhiTranslate="{{ 'myschoolApp.Gender.' + tutor.gender }}">{{ tutor.gender }}</td>
+                    <td>{{ tutor.address }}</td>
+                    <td>{{ tutor.phoneNumber }}</td>
+                    <td>{{ tutor.email }}</td>
+                    <td>{{ tutor.passowrd }}</td>
+                    <td>
+                        <div *ngIf="tutor.tutorType">
+                            <a [routerLink]="['/tutor-type', tutor.tutorType?.id, 'view']" >{{ tutor.tutorType?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/tutor', tutor.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/tutor', tutor.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tutor)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
